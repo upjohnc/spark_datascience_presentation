@@ -1,0 +1,75 @@
+ipython notebook
+- in Projects
+- start notebook
+    - myspark/bin/ipython notebook --profile=pyspark
+
+Spin up instances
+- in home folder
+    - ./bdutil deploy -e extensions/spark/spark_env.sh --bucket donorbureaudata
+- shell in
+    - gcloud --project=deft-bonsai-89419 compute ssh --zone=us-central1-a hadoop-m
+- kill instances
+    -  ./bdutil --bucket donorbureaudata  delete
+
+Spark UI
+- gcloud compute instances add-tags hadoop-m --zone us-central1-a --tags http-8080-server && gcloud compute instances add-tags hadoop-w-0 --zone us-central1-a --tags http-8080-server && gcloud compute instances add-tags hadoop-w-1 --zone us-central1-a --tags http-8080-server && gcloud compute instances add-tags hadoop-w-2 --zone us-central1-a --tags http-8080-server && gcloud compute instances add-tags hadoop-w-3 --zone us-central1-a --tags http-8080-server
+- http://<master-node-public-ip>:4040
+__________________________________________________
+    
+Narrative
+
+Situation
+- Your data is growing faster than your computer can handle
+- You believe that Spark can solve this problem by adding a node rather than buying a new computer
+- Need to prove your boss
+
+Get Spark running on local machine
+- Learn what an RDD is
+- Now test out the dataframe
+
+Learn that Google Cloud gives the first two months free
+- Get a 4 node cluster running
+- Write up a logistic regression model
+- Check on progress through Spark UI
+
+Walk through code
+- function to parse out the date and boolean of over 15 minute delay or not
+- training set
+    - start with Air - 2007
+    - map the function
+    - Read in tmax
+    - Read in tmin
+    - Join the three sets
+        - joins the data into tuples
+    - function to create the labels and features
+- train the model
+- test data
+    - same steps as with the 2008
+- run on the model
+- Calc the error
+
+__________________________________________________
+- Give blog to set up and run in ipython
+    - IPython Notebook - PySpark · John Ramey
+- Daraframe on local machine
+    - Projects/donor_bureau/test dataframe.ipynb
+- Mllib stuff
+- Add Google cloud link
+    - Try Google Cloud Platform for free
+    - bdutil
+        - https://cloud.google.com/hadoop/setting-up-a-hadoop-cluster
+    - bdutil-1.3.1
+        - ./bdutil deploy -e extensions/spark/spark_env.sh --bucket donorbureaudata
+        - gcloud --project=deft-bonsai-89419 compute ssh --zone=us-central1-a hadoop-m
+        -  ./bdutil --bucket donorbureaudata  delete
+        - bdutil_env.sh - set the number of nodes
+        - extensions/spark/spark_env.sh - set the spark version
+    - open ports for spark ui
+        - gcloud compute instances add-tags hadoop-m --zone us-central1-a --tags http-8080-server && gcloud compute instances add-tags hadoop-w-0 --zone us-central1-a --tags http-8080-server && gcloud compute instances add-tags hadoop-w-1 --zone us-central1-a --tags http-8080-server && gcloud compute instances add-tags hadoop-w-2 --zone us-central1-a --tags http-8080-server && gcloud compute instances add-tags hadoop-w-3 --zone us-central1-a --tags http-8080-server
+        - http://<master-node-public-ip>:4040
+
+ipython notebook
+
+- in Projects
+- start notebook
+    - myspark/bin/ipython notebook --profile=pyspark

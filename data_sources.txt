@@ -1,0 +1,8 @@
+The 2007.csv file found in the inmar folder is used to drive the dataframe example.
+
+For the data used in the log regression code:
+Airline data:
+https://www.dropbox.com/s/c7pn0qseqfhz7pw/airline.tar.gz?dl=0
+
+Weather Data: 
+https://www.dropbox.com/s/rb47vyjaixexzn3/weather.tar.gz?dl=0
